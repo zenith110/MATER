@@ -43,7 +43,6 @@ jobs:
         - name: Docker push Mater
           env:
             GITHUB_SHA: "${{ github.sha }}"
-            USERNAME: "${{ secrets.DOCKER_USER }}"
           run: |
-            docker tag $USERNAME/mater:$GITHUB_SHA
-            docker push $USERNAME/mater:$GITHUB_SHA
+            docker tag mater:$GITHUB_SHA
+            docker push mater:$GITHUB_SHA
