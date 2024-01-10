@@ -44,5 +44,4 @@ jobs:
           env:
             GITHUB_SHA: "${{ github.sha }}"
           run: |
-            docker tag mater:$GITHUB_SHA
             docker push mater:$GITHUB_SHA
