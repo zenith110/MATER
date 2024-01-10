@@ -3,6 +3,7 @@ name: Deploy to Docker
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 jobs:
   Mater_Setup:
     runs-on: ubuntu-latest
@@ -38,7 +39,7 @@ jobs:
           env:
             GITHUB_SHA: "${{ github.sha }}"
           run: |
-            docker buildx build --tag $USERNAME/mater:$GITHUB_SHA -f ./prod.dockerfile ./
+            docker buildx build --tag $USERNAME/mater:$GITHUB_SHA -f ./prod.dockerfile .
         - name: Docker push Mater
           env:
             GITHUB_SHA: "${{ github.sha }}"
